@@ -43,7 +43,7 @@ export function TabProductos() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const initialData = await fetchData2("${apiUrl}/consultar_productos", token);
+        const initialData = await fetchData2(`${apiUrl}/consultar_productos`, token);
         setData(initialData);
       } catch (error) {
         console.error('Error al cargar los productos:', error);
