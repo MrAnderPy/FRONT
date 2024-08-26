@@ -9,7 +9,7 @@ export const proveedorSchema = z.object({
       .trim()
       .nonempty({ message: 'El teléfono de contacto es requerido' })
       .regex(/^\+?\d{7,15}$/, { message: 'El teléfono de contacto debe ser un número válido' }),
-    nit: z.string()
+    cedula_nit: z.string()
       .trim()
       .nonempty({ message: 'El NIT es requerido' })
       .max(20, { message: 'El NIT no puede tener más de 20 caracteres' }),
@@ -17,10 +17,6 @@ export const proveedorSchema = z.object({
       .trim()
       .nonempty({ message: 'El sello es requerido' })
       .max(100, { message: 'El sello no puede tener más de 100 caracteres' }),
-    cedula: z.string()
-      .trim()
-      .nonempty({ message: 'La cédula es requerida' })
-      .regex(/^\d{7,15}$/, { message: 'La cédula debe ser un número válido' }),
     direccion: z.string()
       .trim()
       .nonempty({ message: 'La dirección es requerida' })

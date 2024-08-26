@@ -40,7 +40,7 @@ export function Aside() {
 
   const accessibleModules = Array.isArray(access) ? 
     modules.filter(module =>
-      access.some(access => access.id_modulo === module.id && access.acceso === 1)
+      access.some(access => access.id_modulo == module.id && access.acceso == 1)
     ) : [];
 
 

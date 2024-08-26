@@ -32,7 +32,7 @@ export function NavUser() {
             </a>
           </Button>
           <Button color="red" size="sm" className="w-48 h-12 mt-5" onClick={logout}>
-            <a href="/" className="flex items-center">
+            <a href="/catalogo" className="flex items-center">
               Cerrar sesión
             </a>
           </Button>
@@ -45,7 +45,7 @@ export function NavUser() {
     <div className="max-w-full overflow-x-hidden">
       <Navbar className="max-w-full sticky top-0 z-10 h-max w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex text-blue-gray-900">
-          <Typography as="a" href="/" className="mr-4 cursor-pointer py-1.5 font-medium">
+          <Typography as="a" href="/catalogo" className="mr-4 cursor-pointer py-1.5 font-medium">
             <img src="/images/logo.png" className="h-16 w-16 mt-2" alt="Logo" />
           </Typography>
           <div className="hidden lg:block">{navList}</div>
@@ -109,7 +109,7 @@ export function NavUser() {
                 </a>
               </Button>
               <Button variant="" size="sm" className="w-48 h-12 mt-4 m-5" onClick={logout}>
-                <a href="/" className="flex items-center">
+                <a href="/catalogo" className="flex items-center">
                   Cerrar sesión
                 </a>
               </Button>
