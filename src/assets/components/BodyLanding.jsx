@@ -31,7 +31,7 @@ export function BodyLanding() {
             <Typography variant="h3" color="blue-gray" className="mb-2 text-black">
               Bienvenido a Batri
             </Typography>
-            <Typography className="mt-2 text-black">
+            <Typography className="mt-3 text-black">
               Podrás encontrar variedad de accesorios para tus celulares y diferentes periféricos.
             </Typography>
           </CardBody>
