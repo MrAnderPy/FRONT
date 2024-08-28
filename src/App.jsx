@@ -7,9 +7,7 @@ import { Productos } from './assets/pages/Productos'
 import { Proveedores } from './assets/pages/Proveedores'
 import { Compras } from './assets/pages/Compras'
 import Login from './assets/pages/Login'
-
-import { Catalogo } from './assets/pages/catalogo'
-
+import { Catalogo } from './assets/pages/Catalogo'
 import {Ventas} from './assets/pages/Ventas'
 import { Clientes } from './assets/pages/Clientes'
 import Perfil from './assets/pages/Perfil'
