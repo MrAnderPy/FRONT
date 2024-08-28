@@ -242,7 +242,7 @@ export function RegistrarCompraModal({ onAddCategory }) {
                         <option value="">Seleccionar producto</option>
                         {data.map(producto => (
                           <option key={producto.id_producto} value={producto.id_producto}>
-                            {producto.descripcion}
+                            {producto.nombre_producto}
                           </option>
                         ))}
                       </select>
@@ -279,9 +279,7 @@ export function RegistrarCompraModal({ onAddCategory }) {
             <Button color="green" onClick={agregarProducto} variant="gradient">
             Agregar Producto
           </Button>
-          </div>
-        </DialogBody>
-        <DialogFooter>
+              <div className="mt-4 flex justify-end">
           <Button
             variant="text"
             color="red"
@@ -293,6 +291,11 @@ export function RegistrarCompraModal({ onAddCategory }) {
           <Button variant="gradient" color="green" onClick={guardarCompra}>
             <span>Guardar</span>
           </Button>
+</div>
+          </div>
+        </DialogBody>
+        <DialogFooter>
+        
         </DialogFooter>
       </Dialog>
     </>

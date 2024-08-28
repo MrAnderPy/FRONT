@@ -32,7 +32,7 @@ const ITEMS_PER_PAGE = 5;
 const TABLE_HEAD = ["Id", "Cliente", "", "Fecha venta", "", "", "Total", "", "Estado", ""];
 export function TabVentas() {
   const { token } = useContext(AuthContext);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); // Inicializa data como un array vacío
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,10 +42,11 @@ export function TabVentas() {
     const fetchData = async () => {
       try {
         const initialData = await fetchData2(`${apiUrl}/consultar_ventas`, token);
-        setData(initialData);
+        setData(Array.isArray(initialData) ? initialData : []); // Asegúrate de que data sea un array
         setLastUpdated(new Date());
       } catch (error) {
         console.error('Error al cargar los productos:', error);
+        setData([]); // Asegúrate de que data sea un array vacío en caso de error
       }
     };
 
@@ -62,10 +63,11 @@ export function TabVentas() {
         }
       });
       const newData = await response.json();
-      setData(newData);
+      setData(Array.isArray(newData) ? newData : []); // Verifica que newData sea un array
       setLastUpdated(new Date());
     } catch (error) {
       console.error('Error al actualizar los productos:', error);
+      setData([]); // Mantén data como un array vacío si ocurre un error
     }
   };
 
@@ -82,16 +84,16 @@ export function TabVentas() {
     generarExcel(filteredData);
   };
 
-  const filteredData = data.filter(data => {
+  // Asegúrate de que data es un array antes de filtrar
+  const filteredData = Array.isArray(data) ? data.filter(data => {
     const matchesSearchTerm = Object.values(data).some(value =>
       value.toString().toLowerCase().includes(searchTerm.toLowerCase())
     );
     const matchesStatus = filterStatus === 'all' || data.estado.toString() === filterStatus;
     return matchesSearchTerm && matchesStatus;
-  });
+  }) : [];
 
   const handleClick = async (id_venta, estado) => {
-    // Check if the sale is already in a canceled state
     if (estado == 0) {
       Swal.fire({
         title: 'Error!',
@@ -99,40 +101,39 @@ export function TabVentas() {
         icon: 'error',
         confirmButtonText: 'OK'
       });
-      return; // Exit the function early
-    }else{
-  
-    const result = await Swal.fire({
-      title: '¿Estás seguro?',
-      text: '¡No podrás revertir esto!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#22c55e',
-      cancelButtonColor: '#d33',
-      confirmButtonText: '¡Sí, cambiar estado!'
-    });
-  
-    if (result.isConfirmed) {
-      try {
-        const respuesta = await anular(`${apiUrl}/desactivar_venta/`, id_venta);
-        console.log(respuesta);
-        if (respuesta.estado) {
-          Swal.fire({
-            title: 'Cambio de estado!',
-            icon: 'success',
-            text: respuesta.msg,
-            footer: '<a href="/ventas" class="swal2-confirm swal2-styled" style="display: inline-block; background-color: #3085d6; color: #fff; padding: 10px 20px; margin-top: 10px;">OK</a>',
-            showConfirmButton: false
-          });
-          console.log(respuesta.data);
-        } else {
-          Swal.fire('Error!', respuesta.msg, 'error');
+      return;
+    } else {
+      const result = await Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¡No podrás revertir esto!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#22c55e',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '¡Sí, cambiar estado!'
+      });
+
+      if (result.isConfirmed) {
+        try {
+          const respuesta = await anular(`${apiUrl}/desactivar_venta/`, id_venta);
+          console.log(respuesta);
+          if (respuesta.estado) {
+            Swal.fire({
+              title: 'Cambio de estado!',
+              icon: 'success',
+              text: respuesta.msg,
+              footer: '<a href="/ventas" class="swal2-confirm swal2-styled" style="display: inline-block; background-color: #3085d6; color: #fff; padding: 10px 20px; margin-top: 10px;">OK</a>',
+              showConfirmButton: false
+            });
+            console.log(respuesta.data);
+          } else {
+            Swal.fire('Error!', respuesta.msg, 'error');
+          }
+        } catch (error) {
+          console.error('Error:', error);
         }
-      } catch (error) {
-        console.error('Error:', error);
       }
     }
-  }
   };
 
   const totalFilteredPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);

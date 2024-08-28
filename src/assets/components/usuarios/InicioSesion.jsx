@@ -35,7 +35,7 @@ const IniciarSesion = () => {
         Swal.fire({
           title: 'Inicio!',
           icon: 'success',
-          footer: '<a href="/" class="swal2-confirm swal2-styled" style="display: inline-block; background-color: #3085d6; color: #fff; padding: 10px 20px; margin-top: 10px;">Ir a Inicio</a>',
+          footer: '<a href="/Catalogo" class="swal2-confirm swal2-styled" style="display: inline-block; background-color: #3085d6; color: #fff; padding: 10px 20px; margin-top: 10px;">Ir a Inicio</a>',
           showConfirmButton: false
         });
 

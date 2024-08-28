@@ -51,6 +51,7 @@ useEffect(() => {
       setData(initialData);
     } catch (error) {
       setError(error.message);
+      setData([]);
     } finally {
       setLoading(false);
     }

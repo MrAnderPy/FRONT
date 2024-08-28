@@ -42,19 +42,17 @@ export function TabPedidos() {
   const [currentPage, setCurrentPage] = useState(1);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const initialData = await fetchData2(`${apiUrl}/consultar_pedidos`, token);
-        setData(initialData);
-        setLastUpdated(new Date());
-      } catch (error) {
-        console.error('Error al cargar los productos:', error);
-      }
-    };
-
-    fetchData();
-  }, [token]);
+  const fetchData = async () => {
+    try {
+      const initialData = await fetchData2(`${apiUrl}/consultar_pedidos`, token);
+      setData(Array.isArray(initialData) ? initialData : []);
+      setLastUpdated(new Date());
+    } catch (error) {
+      console.error('Error al cargar los productos:', error);
+      setData([]); // En caso de error, asegúrate de que `data` sea un array vacío
+    }
+  };
+  
 
   const updateData = async () => {
     try {

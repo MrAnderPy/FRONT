@@ -275,27 +275,28 @@ export function TabDashboard() {
           </div>
         </CardHeader>
         <CardBody className="px-2 pb-0 flex flex-wrap justify-center">
-        <div className="w-1/3 h-1/3 flex flex-col items-center">
-          <Typography variant="h6" className="mb-2 text-center">
-            Compras Realizadas
-          </Typography>
-          <Chart {...barChartConfigCompra}  />
-        </div>
+  <div className="w-full sm:w-1/2 lg:w-1/3 h-auto flex flex-col items-center mb-4">
+    <Typography variant="h6" className="mb-2 text-center">
+      Compras Realizadas
+    </Typography>
+    <Chart {...barChartConfigCompra} />
+  </div>
 
-        <div className="w-1/3 h-1/3 flex flex-col items-center">
-          <Typography variant="h6" className="mb-2 text-center">
-            Productos Más Vendidos
-          </Typography>
-          <Chart {...pieChartConfig} />
-        </div>
+  <div className="w-full sm:w-1/2 lg:w-1/3 h-auto flex flex-col items-center mb-4">
+    <Typography variant="h6" className="mb-2 text-center">
+      Productos Más Vendidos
+    </Typography>
+    <Chart {...pieChartConfig} />
+  </div>
 
-        <div className="w-1/3 h-1/3 flex flex-col items-center">
-          <Typography variant="h6" className="mb-2 text-center">
-            Ventas Realizadas
-          </Typography>
-          <Chart {...barChartConfigVenta} />
-        </div>
-      </CardBody>
+  <div className="w-full sm:w-1/2 lg:w-1/3 h-auto flex flex-col items-center mb-4">
+    <Typography variant="h6" className="mb-2 text-center">
+      Ventas Realizadas
+    </Typography>
+    <Chart {...barChartConfigVenta} />
+  </div>
+</CardBody>
+
 
       </Card>
     </>

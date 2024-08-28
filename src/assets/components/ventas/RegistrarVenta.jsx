@@ -290,11 +290,14 @@ export function RegistrarVentaModal({ onAddVenta }) {
               <p className="text-lg font-semibold">Total: ${total.toFixed(2)}</p>
               <Button color="green" onClick={agregarProducto}>Agregar Producto</Button>
             </div>
+            <div className="flex justify-end">
+            <Button color="green" className="mr-2" onClick={guardarVenta}>Guardar</Button>
+            <Button color="red" onClick={() => handleOpen(null)}>Cancelar</Button>
+            </div>
           </div>
         </DialogBody>
         <DialogFooter>
-          <Button color="green" className="mr-2" onClick={guardarVenta}>Guardar</Button>
-          <Button color="red" onClick={() => handleOpen(null)}>Cancelar</Button>
+         
         </DialogFooter>
       </Dialog>
     </>

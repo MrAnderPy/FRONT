@@ -60,7 +60,7 @@ export function Nav() {
         
         <Typography
           as="a"
-          href="/"
+          href="/catalogo"
           className="mr-2 cursor-pointer font-medium"
         >
           <img src="/images/logo.png" className="w-16 h-16" />
