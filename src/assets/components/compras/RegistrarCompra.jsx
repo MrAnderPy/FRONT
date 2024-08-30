@@ -279,7 +279,7 @@ export function RegistrarCompraModal({ onAddCategory }) {
             <Button color="green" onClick={agregarProducto} variant="gradient">
             Agregar Producto
           </Button>
-              <div className="mt-4 flex justify-end">
+              <div className="mt-4 flex justify-end mb-10">
           <Button
             variant="text"
             color="red"

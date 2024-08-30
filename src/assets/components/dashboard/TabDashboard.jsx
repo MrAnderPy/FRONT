@@ -191,12 +191,14 @@ export function TabDashboard() {
           color="transparent"
           className="flex flex-col justify-between gap-4 rounded-none md:flex-row md:items-center"
         >
+          <a href="/compras">
           <div className="border-4 border-sky-500 rounded-lg p-5 shadow-lg flex items-center gap-4">
             <div className="bg-gray-900 rounded-full p-4">
               <Badge content="X" color="red">
                 <ShoppingCartIcon className="h-8 w-8 text-white" />
               </Badge>
             </div>
+
             <div>
               <Typography variant="h4" className="text-gray-600 flex flex-col items-center gap-2">
                 Compras
@@ -205,7 +207,9 @@ export function TabDashboard() {
                 {totalData.total_compras_anuladas} anuladas
               </Typography>
             </div>
-          </div>
+
+          </div></a>
+<a href="/compras">
           <div className="border-4 border-sky-500 rounded-lg p-5 shadow-lg flex items-center gap-4">
             <div className="bg-gray-900 rounded-full p-4">
               <Badge
@@ -224,6 +228,8 @@ export function TabDashboard() {
               </Typography>
             </div>
           </div>
+          </a>
+
           <a href="/clientes">
           <div className="border-4 border-sky-500 rounded-lg p-5 shadow-lg flex items-center gap-4">
             <div className="bg-gray-900 rounded-full p-4">
@@ -240,6 +246,7 @@ export function TabDashboard() {
             </div>
            
           </div> </a>
+<a href="/ventas">
           <div className="border-4 border-sky-500 rounded-lg p-5 shadow-lg flex items-center gap-4">
             <div className="bg-gray-900 rounded-full p-4">
               <Badge content="X" color="red">
@@ -255,6 +262,9 @@ export function TabDashboard() {
               </Typography>
             </div>
           </div>
+          </a>
+
+<a href="/ventas">
           <div className="border-4 border-sky-500 rounded-lg p-5 shadow-lg flex items-center gap-4">
             <div className="bg-gray-900 rounded-full p-4">
               <Badge
@@ -273,6 +283,7 @@ export function TabDashboard() {
               </Typography>
             </div>
           </div>
+          </a>
         </CardHeader>
         <CardBody className="px-2 pb-0 flex flex-wrap justify-center">
   <div className="w-full sm:w-1/2 lg:w-1/3 h-auto flex flex-col items-center mb-4">

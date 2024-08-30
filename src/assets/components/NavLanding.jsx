@@ -17,18 +17,7 @@ export function NavLanding() {
             <img src="/images/logo.png" className="h-12 w-12 mt-1" alt="Logo" />
           </Typography>
           <div className="flex items-center gap-x-1">
-            <div className="flex justify-end">
-              <a href="/inicio">
-                <Button variant="text" size="sm" className={`${isMobile ? '' : 'hidden lg:inline-block'} w-42 h-10 mt-1 mr-2 text-black hover:bg-[#5fdf2c]`}>
-                  <span>Login</span>
-                </Button>
-              </a>
-              <a href="/registro">
-                <Button variant="text" size="sm" className={`${isMobile ? '' : 'hidden lg:inline-block'} w-42 h-10 mt-1 text-black hover:bg-[#5fdf2c]`}>
-                  <span>Registro</span>
-                </Button>
-              </a>
-            </div>
+           
           </div>
         </div>
       </Navbar>

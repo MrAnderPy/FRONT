@@ -17,7 +17,7 @@ import {
   } from "@material-tailwind/react";
   import Swal from 'sweetalert2'
   import { useContext } from "react";
-
+  import { useNavigate } from "react-router-dom";
   import { finalizar } from "../servicios/finalizar";
   import { anular } from "../servicios/anular";
 
@@ -39,19 +39,29 @@ export function TabPedidos() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
+  const navigate = useNavigate(); 
   const [currentPage, setCurrentPage] = useState(1);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  const fetchData = async () => {
-    try {
-      const initialData = await fetchData2(`${apiUrl}/consultar_pedidos`, token);
-      setData(Array.isArray(initialData) ? initialData : []);
-      setLastUpdated(new Date());
-    } catch (error) {
-      console.error('Error al cargar los productos:', error);
-      setData([]); // En caso de error, asegúrate de que `data` sea un array vacío
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const initialData = await fetchData2(`${apiUrl}/consultar_pedidos`, token);
+        setData(initialData);
+      } catch (error) {
+        setError(error.message);
+        setData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    if (!token) {
+      navigate("/"); // Redirigir al inicio si no hay token
+    } else {
+      fetchData();
     }
-  };
+  }, [token, navigate]);
+  
   
 
   const updateData = async () => {

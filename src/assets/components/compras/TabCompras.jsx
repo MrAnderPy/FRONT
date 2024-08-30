@@ -46,7 +46,6 @@ const [lastUpdated, setLastUpdated] = useState(null);
 useEffect(() => {
   const fetchData = async () => {
     try {
-     
       const initialData = await fetchData2(`${apiUrl}/consultar_compras`, token);
       setData(initialData);
     } catch (error) {
