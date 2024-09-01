@@ -43,6 +43,11 @@ export function TabPedidos() {
   const [currentPage, setCurrentPage] = useState(1);
   const [lastUpdated, setLastUpdated] = useState(null);
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 0 }).format(price);
+  };
+  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -243,7 +248,7 @@ export function TabPedidos() {
                     <Typography>
                       <p>{id_pedido}</p>
                       <p>{fecha_pedido}</p>
-                      <p>{total}</p>
+                      <p>{formatPrice(total)}</p>
                       <div className="w-max">
                         <Chip
                           id_pedido={id_pedido}
@@ -356,7 +361,7 @@ export function TabPedidos() {
                             color="blue-gray"
                             className="font-normal text-xs"
                           >
-                            {total}
+                            {formatPrice(total)}
                           </Typography>
                         </td>
                        

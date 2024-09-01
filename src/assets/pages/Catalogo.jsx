@@ -19,6 +19,11 @@ export function Catalogo() {
   const [error, setError] = useState('');
   const { agregarAlCarrito } = useCarrito();
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 0 }).format(price);
+  };
+  
+
   console.log(tipoCliente);
 
   const fetchProductos = async () => {
@@ -99,21 +104,22 @@ export function Catalogo() {
           {productosFiltrados.length > 0 ? (
             productosFiltrados.map(({ id_producto, nombre_producto, nombre_categoria, valor_unitario, valor_mayorista, foto }) => (
               <Tarjeta 
-                key={id_producto}
-                id_producto={id_producto}
-                foto={`${apiUrl}/${foto}`} 
-                nombre_producto={nombre_producto} 
-                nombre_categoria={nombre_categoria} 
-                valor_compra={getPrice({ valor_unitario, valor_mayorista })} 
-                textoBotonCarrito="Agregar al carrito" 
-                onAgregarAlCarrito={() => agregarAlCarrito({
-                  id_producto,
-                  nombre_producto,
-                  nombre_categoria,
-                  valor_compra: getPrice({ valor_unitario, valor_mayorista }),
-                  foto: `${apiUrl}/${foto}`
-                })}
-              />
+              key={id_producto}
+              id_producto={id_producto}
+              foto={`${apiUrl}/${foto}`} 
+              nombre_producto={nombre_producto} 
+              nombre_categoria={nombre_categoria} 
+              valor_compra={formatPrice(getPrice({ valor_unitario, valor_mayorista }))} 
+              textoBotonCarrito="Agregar al carrito" 
+              onAgregarAlCarrito={() => agregarAlCarrito({
+                id_producto,
+                nombre_producto,
+                nombre_categoria,
+                valor_compra: getPrice({ valor_unitario, valor_mayorista }),
+                foto: `${apiUrl}/${foto}`
+              })}
+            />
+            
             ))
           ) : (
             <p>No se encontraron productos.</p>

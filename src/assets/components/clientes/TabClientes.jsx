@@ -205,9 +205,7 @@ export function TabClientes() {
                       id_cliente={id_cliente}
                       onUpdateCategory={handleUpdateCliente}
                     />
-                    <Button id_cliente={id_cliente} color="red" onClick={() => handleClick(id_cliente)} className="p-3 m-1">
-                      <TrashIcon className="h-5 w-5" />
-                    </Button>
+                   
                   </CardFooter>
                 </Card>
               </div>

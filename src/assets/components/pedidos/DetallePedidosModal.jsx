@@ -16,7 +16,10 @@ export function DetallePedidoModal({ id_gestion }) {
   const { token } = useContext(AuthContext);
   
   const handleOpen = (value) => setSize(value);
-
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 0 }).format(price);
+  };
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -84,7 +87,7 @@ export function DetallePedidoModal({ id_gestion }) {
                   <tr key={id_producto}>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {cantidad}
+                        {formatPrice(cantidad)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
@@ -94,17 +97,17 @@ export function DetallePedidoModal({ id_gestion }) {
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {precio_unitario}
+                        {formatPrice(precio_unitario)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {cantidad}
+                        {formatPrice(cantidad)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        ${precio_unitario * cantidad}
+                        ${formatPrice(precio_unitario * cantidad)}
                       </p>
                     </td>
                   </tr>

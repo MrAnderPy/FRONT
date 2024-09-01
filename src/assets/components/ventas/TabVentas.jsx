@@ -38,6 +38,10 @@ export function TabVentas() {
   const [currentPage, setCurrentPage] = useState(1);
   const [lastUpdated, setLastUpdated] = useState(null);
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 0 }).format(price);
+  };
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -93,7 +97,7 @@ export function TabVentas() {
     return matchesSearchTerm && matchesStatus;
   }) : [];
 
-  const handleClick = async (id_venta, estado) => {
+  const handleClick = async (id_gestion, estado) => {
     if (estado == 0) {
       Swal.fire({
         title: 'Error!',
@@ -115,7 +119,7 @@ export function TabVentas() {
 
       if (result.isConfirmed) {
         try {
-          const respuesta = await anular(`${apiUrl}/desactivar_venta/`, id_venta);
+          const respuesta = await anular(`${apiUrl}/desactivar_venta/`, id_gestion);
           console.log(respuesta);
           if (respuesta.estado) {
             Swal.fire({
@@ -187,30 +191,24 @@ export function TabVentas() {
       </CardHeader>
       {isMobile ? (
         <div className="flex flex-wrap -mx-2">
-      {currentFilteredPageData.map(({ id_venta, id_proveedor, fecha_venta, total, estado }) => (
-        <div key={id_venta} className="card w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
+      {currentFilteredPageData.map(({ id_gestion,nombre_cliente, id_proveedor, fecha_gestion, total, estado }) => (
+        <div key={id_gestion} className="card w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
           <Card className="mt-6 w-full">
             <CardBody>
               <Typography variant="h5" color="blue-gray" className="mb-2">
                 {id_proveedor}
               </Typography>
               <Typography>
-                <p>{id_venta}</p>
-                <p>{fecha_venta}</p>
-                <p>{total}</p>
-                <div className="w-max">
-                  <Chip
-                    onClick={() => handleClick(id_venta, estado)}
-                    variant="ghost"
-                    size="sm"
-                    value={estado == '1' ? "Activo" : "Inactivo"}
-                    color={estado == '1' ? "green" : "blue-gray"}
-                  />
-                </div>
+                <p>{id_gestion}</p>
+                <p>{nombre_cliente}</p>
+                <p>{fecha_gestion}</p>
+                <p>{formatPrice(total)}</p>
+                <DetalleVentaModal id_gestion={id_gestion} className="mt-2"/>
+               
               </Typography>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button color="red" onClick={() => handleClick(id_venta, estado)} className="p-3 m-1">
+              <Button color="red" onClick={() => handleClick(id_gestion, estado)} className="p-3 m-1">
                 <TrashIcon className="h-5 w-5" />
               </Button>
             </CardFooter>
@@ -308,7 +306,7 @@ export function TabVentas() {
                           color="blue-gray"
                           className="font-normal text-xs"
                         >
-                          {total}
+                          {formatPrice(total)}
                         </Typography>
                       </td>
 

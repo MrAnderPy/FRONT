@@ -166,7 +166,7 @@ export function RegistrarVentaModal({ onAddVenta }) {
 
   return (
     <>
-      <div className="flex justify-end mx-2 mb-4"> {/* Posición ajustada */}
+      <div className="flex justify-end mx-2"> {/* Posición ajustada */}
         <Button color="green" onClick={() => handleOpen("lg")} variant="gradient" className="flex">
           <UserPlusIcon strokeWidth={2} className="h-4 w-4" />Agregar venta
         </Button>

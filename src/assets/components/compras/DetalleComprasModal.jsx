@@ -14,6 +14,10 @@ export function DetalleCompraModal({ id_compra }) {
   const [size, setSize] = useState(null);
   const [data, setData] = useState([]);
   const { token } = useContext(AuthContext);
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 0 }).format(price);
+  };
+  
 
   const handleOpen = async (value) => {
     setSize(value);
@@ -90,12 +94,12 @@ export function DetalleCompraModal({ id_compra }) {
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {precio_unitario}
+                        {formatPrice(precio_unitario)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        ${precio_unitario * cantidad}
+                        ${formatPrice(precio_unitario * cantidad)}
                       </p>
                     </td>
                   </tr>

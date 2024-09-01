@@ -97,7 +97,7 @@ export function CrearClienteModal({ onAddCategory }) {
           unmount: { scale: 0.9, y: -100 },
         }}
       >
-        <DialogBody>
+        <DialogBody className="h-[42rem] overflow-scroll">
             <form onSubmit={manejarEnvio} className="max-w-4xl mx-auto bg-white shadow-[0_2px_18px_-3px_rgba(6,81,237,0.4)] sm:p-8 p-4 rounded-md">
               <div className="grid md:grid-cols-2 gap-y-7 gap-x-12">
                 <div>

@@ -171,7 +171,7 @@ export function TabUsuarios() {
   return (
     <Card className="h-full w-full mb-2 z-0 bg-transparent p-2 ">
       <CardHeader floated={false} shadow={false} className="rounded-none py-2">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between p-2">
         <div className="flex items-center space-x-2">
             <CrearUsuarioModal onAddUser={handleAddUser}/> 
             <Button className="flex items-center h-10 px-4 py-2" color="green" onClick={generarReporteExcel}>
@@ -180,7 +180,7 @@ export function TabUsuarios() {
             </Button>
         </div>
         <div className="flex items-center space-x-2">
-        <div className="relative">
+        <div className="relative flex">
             <MagnifyingGlassIcon className="absolute top-2 right-2 h-5 w-5 text-gray-400" />
             <Input
               className="pl-0 h-10 pr-8"
@@ -190,7 +190,7 @@ export function TabUsuarios() {
             />
         </div>
         <select
-              className="h-10 px-4 py-2 border border-gray-300 rounded-md"
+              className="h-10 px-4 py-2 border border-gray-300 rounded-md flex"
               value={filterStatus}
               onChange={e => setFilterStatus(e.target.value)}
             >
