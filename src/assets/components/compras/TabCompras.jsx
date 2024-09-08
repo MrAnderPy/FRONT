@@ -204,7 +204,7 @@ const handleNextPage = () => {
                   <Typography>
                     <p>{id_compra}</p>
                     <p>{fecha_compra}</p>
-                    <p>{formatPrice(total)}</p>
+                    <p>${formatPrice(total)}</p>
                     <div className="w-max">
                       <Chip
                         id_compra={id_compra}
@@ -317,7 +317,7 @@ const handleNextPage = () => {
                           color="blue-gray"
                           className="font-normal text-xs"
                         >
-                          {formatPrice(total)}
+                          ${formatPrice(total)}
                         </Typography>
                       </td>
                      

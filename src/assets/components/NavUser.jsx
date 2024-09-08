@@ -10,8 +10,9 @@ import { AuthContext } from "../../AuthContext";
 
 export function NavUser() {
   const [openNav, setOpenNav] = React.useState(false);
-  const { token } = useContext(AuthContext);
+  const { token, idCliente } = useContext(AuthContext);
   const { access, logout } = useContext(AuthContext);
+  
 
   React.useEffect(() => {
     window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
@@ -26,11 +27,14 @@ export function NavUser() {
               <span>Pedidos</span>
             </Button>
           </a>
-          <Button color="green" size="sm" className="w-48 h-12 mt-4 m-5">
-            <a href="/perfil" className="flex items-center ">
-              Cuenta
-            </a>
-          </Button>
+    
+          {idCliente && (
+            <Button color="green" size="sm" className="w-48 h-12 mt-4 m-5">
+              <a href="/perfil" className="flex items-center ">
+                Cuenta
+              </a>
+            </Button>
+          )}
           <Button color="red" size="sm" className="w-48 h-12 mt-5" onClick={logout}>
             <a href="/catalogo" className="flex items-center">
               Cerrar sesión

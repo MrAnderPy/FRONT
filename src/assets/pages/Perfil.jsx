@@ -154,7 +154,7 @@ export function TabPedidos() {
           Pedidos
         </Typography>
         <div className="flex">
-          <Button color="green" onClick={handlePreviousPage} disabled={currentPage === 1}>
+          <Button color="green" className="mr-2" onClick={handlePreviousPage} disabled={currentPage === 1}>
             Anterior
           </Button>
           <Button color="green" onClick={handleNextPage} disabled={currentPage === totalFilteredPages}>

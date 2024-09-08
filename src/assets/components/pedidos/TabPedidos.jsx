@@ -248,7 +248,7 @@ export function TabPedidos() {
                     <Typography>
                       <p>{id_pedido}</p>
                       <p>{fecha_pedido}</p>
-                      <p>{formatPrice(total)}</p>
+                      <p>${formatPrice(total)}</p>
                       <div className="w-max">
                         <Chip
                           id_pedido={id_pedido}
@@ -361,7 +361,7 @@ export function TabPedidos() {
                             color="blue-gray"
                             className="font-normal text-xs"
                           >
-                            {formatPrice(total)}
+                            ${formatPrice(total)}
                           </Typography>
                         </td>
                        

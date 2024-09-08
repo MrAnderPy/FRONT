@@ -138,7 +138,7 @@ export function Registro() {
               {errors.id && <p className="text-red-500 text-xs mt-1">{errors.id}</p>}
             </div>
             <div>
-              <label className="text-sm mb-2 block">Nombre*</label>
+              <label className="text-sm mb-2 block">Nombres y apellidos*</label>
               <input name="nombre_cliente" type="text" className="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Ingresa tu nombre" />
               {errors.nombre_cliente && <p className="text-red-500 text-xs mt-1">{errors.nombre_cliente}</p>}
             </div>

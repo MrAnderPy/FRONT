@@ -202,7 +202,7 @@ export function TabVentas() {
                 <p>{id_gestion}</p>
                 <p>{nombre_cliente}</p>
                 <p>{fecha_gestion}</p>
-                <p>{formatPrice(total)}</p>
+                <p>${formatPrice(total)}</p>
                 <DetalleVentaModal id_gestion={id_gestion} className="mt-2"/>
                
               </Typography>
@@ -306,7 +306,7 @@ export function TabVentas() {
                           color="blue-gray"
                           className="font-normal text-xs"
                         >
-                          {formatPrice(total)}
+                          ${formatPrice(total)}
                         </Typography>
                       </td>
 

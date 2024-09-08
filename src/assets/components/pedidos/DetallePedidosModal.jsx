@@ -34,6 +34,9 @@ export function DetallePedidoModal({ id_gestion }) {
     fetchData();
   }, [token, id_gestion]);
 
+  const total = data.reduce((sum, { precio_unitario, cantidad }) => sum + precio_unitario * cantidad, 0);
+
+
   return (
     <>
       <div className="flex mx-2">
@@ -46,7 +49,9 @@ export function DetallePedidoModal({ id_gestion }) {
         size={size || "md"}
         handler={handleOpen}
       >
-        <DialogHeader>Ver pedido</DialogHeader>
+        <DialogHeader>Ver pedido
+        <span className="text-gray-700 ml-12">Total: ${total.toFixed(2)}</span>
+        </DialogHeader>
         <DialogBody className="h-[42rem] overflow-scroll">
           <div className="relative flex flex-col ml-4 text-gray-700 bg-white rounded-xl">
             <table className="w-full text-left min-w-full mb-12">
@@ -97,12 +102,12 @@ export function DetallePedidoModal({ id_gestion }) {
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {formatPrice(precio_unitario)}
+                        ${formatPrice(precio_unitario)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {formatPrice(cantidad)}
+                        ${formatPrice(cantidad)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">

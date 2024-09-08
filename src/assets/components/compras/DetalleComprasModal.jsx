@@ -94,7 +94,7 @@ export function DetalleCompraModal({ id_compra }) {
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
                       <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                        {formatPrice(precio_unitario)}
+                        ${formatPrice(precio_unitario)}
                       </p>
                     </td>
                     <td className="p-4 border-b border-blue-gray-50">
