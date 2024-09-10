@@ -1,6 +1,7 @@
 import {
   MagnifyingGlassIcon,
   TrashIcon,
+  XCircleIcon,
   DocumentArrowDownIcon,
 } from "@heroicons/react/24/outline";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
@@ -220,7 +221,7 @@ const handleNextPage = () => {
                 <CardFooter className="pt-0">
                 
                   <Button id_compra={id_compra} color="red" onClick={() => handleClick(id_compra)} className="p-3 m-1">
-                    <TrashIcon className="h-5 w-5" />
+                    <XCircleIcon className="h-5 w-5" />
                   </Button>
                 </CardFooter>
               </Card>
@@ -345,7 +346,7 @@ const handleNextPage = () => {
                       </td>
                       <td className={classes}>
                                           <div className="flex">
-                                              <DetalleCompraModal id_compra = {id_compra} />
+                                              <DetalleCompraModal id_compra = {id_compra} fecha={fecha_compra} proveedor={nombre_proveedor} />
 
                                           </div>
                                       </td>

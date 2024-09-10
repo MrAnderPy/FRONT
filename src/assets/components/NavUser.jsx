@@ -22,12 +22,13 @@ export function NavUser() {
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 max-h-full">
       {token && (
         <div className="flex flex-wrap justify-center gap-4 lg:justify-end">
+          {!idCliente && (
           <a href="/pedidos">
             <Button color="green" size="sm" className="w-48 h-12 mt-5">
               <span>Pedidos</span>
             </Button>
           </a>
-    
+   ) }
           {idCliente && (
             <Button color="green" size="sm" className="w-48 h-12 mt-4 m-5">
               <a href="/perfil" className="flex items-center ">

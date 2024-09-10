@@ -195,7 +195,7 @@ export function TabPedidos() {
                 </Typography>
               </td>
               <td>
-                <DetallePedidoModal id_gestion={id_gestion} />
+                <DetallePedidoModal id_gestion={id_gestion} fecha={fecha_gestion} />
               </td>
             </tr>
           ))}

@@ -1,6 +1,7 @@
 import {
     MagnifyingGlassIcon,
     TrashIcon,
+    XCircleIcon,
     DocumentArrowDownIcon,
   } from "@heroicons/react/24/outline";
   import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
@@ -264,7 +265,7 @@ export function TabPedidos() {
                   <CardFooter className="pt-0">
                   
                     <Button id_pedido={id_pedido} color="red" onClick={() => handleClick(id_pedido)} className="p-3 m-1">
-                      <TrashIcon className="h-5 w-5" />
+                      <XCircleIcon className="h-5 w-5" />
                     </Button>
                   </CardFooter>
                 </Card>
@@ -390,7 +391,7 @@ export function TabPedidos() {
                         <td className={classes}>
                                             <div className="flex">
 
-                                                <DetallePedidoModal id_gestion = {id_gestion} />
+                                                <DetallePedidoModal id_gestion = {id_gestion} fecha= {fecha_gestion} cliente= {nombre_cliente}/>
 
                                             </div>
                                         </td>
@@ -398,7 +399,7 @@ export function TabPedidos() {
                                         <td className={classes}>
                                             <div className="flex">
 <Button color="red" onClick={() => handleClick2(id_gestion, estado)} >
-                                                <TrashIcon id_gestion = {id_gestion} estado={estado} strokeWidth={2} className="h-4 w-4"> </TrashIcon>
+                                                <XCircleIcon id_gestion = {id_gestion} estado={estado} strokeWidth={2} className="h-4 w-4"> </XCircleIcon>
                 </Button>                              
                                             </div>
                                         </td>

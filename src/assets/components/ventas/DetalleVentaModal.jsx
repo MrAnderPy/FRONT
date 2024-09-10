@@ -10,7 +10,7 @@ import { AuthContext } from "../../../AuthContext";
 import { PencilSquareIcon, EyeIcon } from "@heroicons/react/24/solid";
 import fetchData2 from "../servicios/fetchData2";
 const apiUrl = import.meta.env.VITE_API_URL;
-export function DetalleVentaModal({ id_gestion }) {
+export function DetalleVentaModal({ id_gestion, fecha, cliente }) {
   const [size, setSize] = useState(null);
   const [data, setData] = useState([]);
   const { token } = useContext(AuthContext);
@@ -46,8 +46,10 @@ export function DetalleVentaModal({ id_gestion }) {
         size={size || "md"}
         handler={handleOpen}
       >
-        <DialogHeader><p>Ver compra</p>
-        <span className="text-gray-700 ml-12">Total: ${total.toFixed(2)}</span>
+        <DialogHeader>
+        <span className="text-gray-700 ml-12">Total: ${formatPrice(total.toFixed(2))}</span>
+        <span className="text-gray-700 ml-12">Fecha: {fecha}</span>
+        <span className="text-gray-700 ml-12">Cliente: {cliente}</span>
 
         </DialogHeader>
         <DialogBody className="h-[42rem] overflow-scroll">

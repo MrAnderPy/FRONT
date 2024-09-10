@@ -22,13 +22,14 @@ const modules = [
   { id: 1, name: 'Dashboard', icon: UsersIcon, path: '/dashboard' },
   { id: 2, name: 'Roles', icon: ChevronRightIcon, path: '/roles' },
   { id: 3, name: 'Usuarios', icon: ChevronRightIcon, path: '/usuarios' },
-  { id: 4, name: 'Pedidos', icon: ChevronRightIcon, path: '/pedidos' },
-  { id: 5, name: 'Ventas', icon: ChevronRightIcon, path: '/ventas' },
-  { id: 6, name: 'Clientes', icon: ChevronRightIcon, path: '/clientes' },
-  { id: 7, name: 'Compras', icon: ChevronRightIcon, path: '/compras' },
   { id: 8, name: 'Categorias', icon: ChevronRightIcon, path: '/categorias' },
   { id: 9, name: 'Productos', icon: ChevronRightIcon, path: '/productos' },
   { id: 10, name: 'Proveedores', icon: ChevronRightIcon, path: '/proveedores' },
+  { id: 7, name: 'Compras', icon: ChevronRightIcon, path: '/compras' },
+  { id: 6, name: 'Clientes', icon: ChevronRightIcon, path: '/clientes' },
+  { id: 4, name: 'Pedidos', icon: ChevronRightIcon, path: '/pedidos' },
+  { id: 5, name: 'Ventas', icon: ChevronRightIcon, path: '/ventas' },
+  
 ];
 
 export function Aside() {
@@ -60,7 +61,7 @@ export function Aside() {
           <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-2 shadow-xl shadow-blue-gray-900/5 px-2">
             <div className="mb-2 p-4">
               {/* Aquí podrías agregar un título o logo */}
-            </div>
+         </div>
             <List>
               {accessibleModules.map(module => (
                 <a href={module.path} key={module.id}>
@@ -75,6 +76,8 @@ export function Aside() {
                 </a>
               ))} 
 <a href="/">
+<div className='border-black rounded-lg'>
+ <hr class="border-t-2 border-gray-400 my-4" />
               <ListItem onClick={logout}>
                 <ListItemPrefix>
                   <PowerIcon className="h-5 w-5 text-red-500" />
@@ -82,7 +85,7 @@ export function Aside() {
                 <Typography color="red" className="mr-auto font-normal">
                   Cerrar
                 </Typography>
-              </ListItem> 
+              </ListItem> </div>
 </a>
             </List>
           </Card>

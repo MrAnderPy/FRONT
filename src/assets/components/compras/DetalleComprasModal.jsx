@@ -10,7 +10,7 @@ import { AuthContext } from "../../../AuthContext";
 import { EyeIcon } from "@heroicons/react/24/solid";
 import fetchData2 from "../servicios/fetchData2";
 const apiUrl = import.meta.env.VITE_API_URL;
-export function DetalleCompraModal({ id_compra }) {
+export function DetalleCompraModal({ id_compra, proveedor, fecha }) {
   const [size, setSize] = useState(null);
   const [data, setData] = useState([]);
   const { token } = useContext(AuthContext);
@@ -48,8 +48,10 @@ export function DetalleCompraModal({ id_compra }) {
       >
         <DialogHeader>
           <div className="flex justify-between items-center w-full">
-            <span>Ver compra</span>
-            <span className="text-gray-700">Total: ${total.toFixed(2)}</span>
+            
+            <span className="text-gray-700">Total: ${formatPrice(total.toFixed(2))}</span>
+            <span className="text-gray-700">Proveedor: {proveedor}</span>
+            <span className="text-gray-700">Fecha: {fecha} </span>
           </div>
         </DialogHeader>
         <DialogBody className="h-[42rem] overflow-scroll">

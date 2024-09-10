@@ -1,6 +1,7 @@
 import {
   MagnifyingGlassIcon,
   TrashIcon,
+  XCircleIcon,
   DocumentArrowDownIcon,
 } from "@heroicons/react/24/outline";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
@@ -203,13 +204,14 @@ export function TabVentas() {
                 <p>{nombre_cliente}</p>
                 <p>{fecha_gestion}</p>
                 <p>${formatPrice(total)}</p>
-                <DetalleVentaModal id_gestion={id_gestion} className="mt-2"/>
+                <DetalleVentaModal id_gestion={id_gestion} fecha = {fecha_gestion} cliente={nombre_cliente} />
+
                
               </Typography>
             </CardBody>
             <CardFooter className="pt-0">
               <Button color="red" onClick={() => handleClick(id_gestion, estado)} className="p-3 m-1">
-                <TrashIcon className="h-5 w-5" />
+                <XCircleIcon className="h-5 w-5" />
               </Button>
             </CardFooter>
           </Card>
@@ -332,7 +334,7 @@ export function TabVentas() {
                       </td>
                       <td className={classes}>
                         <div className="flex">
-                          <DetalleVentaModal id_gestion={id_gestion} />
+                          <DetalleVentaModal id_gestion={id_gestion} fecha = {fecha_gestion} cliente={nombre_cliente} />
                         </div>
                       </td>
 

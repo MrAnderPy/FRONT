@@ -30,7 +30,7 @@ import {
 const ITEMS_PER_PAGE = 5;
 
 
-const TABLE_HEAD = ["Id", "Nombres", "Identidad", "Contacto", "Telefono", "Correo","Tipo", "Estado", ""];
+const TABLE_HEAD = ["Id", "Nombres", "Identidad", "Telefono", "Correo","Tipo", "Estado", ""];
 export function TabClientes() {
   const { token } = useContext(AuthContext);
   const [data, setData] = useState([]);
@@ -173,7 +173,7 @@ export function TabClientes() {
         {isMobile ? (
           // Render mobile version of the table (as cards)
           <div className="flex flex-wrap -mx-2">
-            {currentFilteredPageData.map(({ id_cliente, nombre_cliente, apellido_cliente, id, contacto, telefono, correo, estado, tipo_identificacion }) => (
+            {currentFilteredPageData.map(({ id_cliente, nombre_cliente, apellido_cliente, id,  telefono, correo, estado, tipo_identificacion }) => (
               <div key={id_cliente} className="card w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
                 <Card className="mt-6 w-full">
                   <CardBody>
@@ -183,7 +183,7 @@ export function TabClientes() {
                     <Typography>
                       <p>{apellido_cliente}</p>
                       <p>{id}</p>
-                      <p>{contacto}</p>
+                  
                       <p>{telefono}</p>
                       <p>{correo}</p>
                       <p>{tipo_identificacion}</p>
@@ -235,7 +235,7 @@ export function TabClientes() {
               </thead>
               <tbody>
                 <Suspense fallback={<div>Cargando</div>}>
-                {currentFilteredPageData.map(({ id_cliente, nombre_cliente, apellido_cliente, id, contacto, telefono, correo, estado, tipo_identificacion }, index) => {
+                {currentFilteredPageData.map(({ id_cliente, nombre_cliente, tipo_cliente, id,  telefono, correo, estado, tipo_identificacion }, index) => {
                     const isLast = index === data.length - 1;
                     const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
     
@@ -265,16 +265,7 @@ export function TabClientes() {
                             color="blue-gray"
                             className="font-normal text-xs"
                           >
-                            {id}
-                          </Typography>
-                        </td>
-                        <td className={classes}>
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal text-xs"
-                          >
-                            {contacto}
+                            {tipo_identificacion}{" "}{id}
                           </Typography>
                         </td>
                         <td className={classes}>
@@ -301,9 +292,10 @@ export function TabClientes() {
                             color="blue-gray"
                             className="font-normal text-xs"
                           >
-                            {tipo_identificacion}
+                            {tipo_cliente}
                           </Typography>
                         </td>
+                        
                         <td className={classes}>
                           <div className="w-max">
                             <Chip

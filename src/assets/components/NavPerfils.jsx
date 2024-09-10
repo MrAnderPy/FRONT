@@ -41,8 +41,10 @@ export function NavPerfil() {
     <div className="max-w-full overflow-x-hidden">
       <Navbar className="max-w-full sticky top-0 z-10 h-max w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex text-blue-gray-900">
+
           <Typography as="a" href="#" className="mr-4 cursor-pointer py-1.5 font-medium">
-            <img src="/images/logo.png" className="h-16 w-16 mt-2" alt="Logo" />
+            <a href="/catalogo">
+            <img src="/images/logo.png" className="h-16 w-16 mt-2" alt="Logo" /></a>
           </Typography>
           <div className="hidden lg:block">{navList}</div>
           <div className="flex items-center gap-x-1">
