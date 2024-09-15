@@ -104,7 +104,7 @@ export default function Perfil() {
   );
 }
 
-const TABLE_HEAD = ["Id", "Fecha pedido", "Total", "Detalle"];
+const TABLE_HEAD = ["Id", "Fecha pedido","Estado", "Total", "Detalle"];
 const ITEMS_PER_PAGE = 5;
 
 export function TabPedidos() {
@@ -175,7 +175,7 @@ export function TabPedidos() {
           </tr>
         </thead>
         <tbody>
-          {currentFilteredPageData.map(({ id_gestion, fecha_gestion, total}) => (
+          {currentFilteredPageData.map(({ id_gestion, fecha_gestion,estado, total}) => (
             <tr key={id_gestion} className="h-8">
               <td className="p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal text-xs">
@@ -188,6 +188,19 @@ export function TabPedidos() {
                   {fecha_gestion}
                 </Typography>
               </td>
+              <td >
+                          <div className="w-max">
+                          <Chip
+                            id_gestion={id_gestion}
+                            estado={estado}
+                            onClick={() => estado == '1' && handleClick(id_gestion, estado)}
+                            variant="ghost"
+                            size="sm"
+                            value={estado == '1' ? "Pendiente" : "Pago"}
+                            color={estado == '1' ? "orange" : "green"}
+                          />
+                          </div>
+                        </td>
               
               <td className="p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal text-xs">

@@ -57,6 +57,7 @@ export function CrearClienteModal({ onAddCategory }) {
             footer: '<a href="/clientes" class="swal2-confirm swal2-styled" style="display: inline-block; background-color: #3085d6; color: #fff; padding: 10px 20px; margin-top: 10px;">Ir a Inicio</a>',
             showConfirmButton: false
           });
+          setOpen(false);
         } else {
           Swal.fire({
             title: 'Agregado!',
@@ -65,6 +66,7 @@ export function CrearClienteModal({ onAddCategory }) {
             footer: '<a href="/clientes" class="swal2-confirm swal2-styled" style="display: inline-block; background-color: #3085d6; color: #fff; padding: 10px 20px; margin-top: 10px;">Ir a Inicio</a>',
             showConfirmButton: false
           });
+          setOpen(false);
         }
       } catch (error) {
         console.log(error);
