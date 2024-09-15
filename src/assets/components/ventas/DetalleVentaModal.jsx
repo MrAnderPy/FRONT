@@ -84,7 +84,7 @@ export function DetalleVentaModal({ id_gestion, fecha, cliente }) {
           <tr key={id_producto}>
             <td className="p-4 border-b border-blue-gray-50">
               <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                ${formatPrice(cantidad)}
+                {formatPrice(cantidad)}
               </p>
             </td>
             <td className="p-4 border-b border-blue-gray-50">

@@ -204,7 +204,7 @@ export function TabPedidos() {
               
               <td className="p-4">
                 <Typography variant="small" color="blue-gray" className="font-normal text-xs">
-                  {total}
+                  ${total}
                 </Typography>
               </td>
               <td>
