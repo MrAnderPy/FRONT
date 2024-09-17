@@ -25,7 +25,7 @@ export function EditarUsuarioModal({ id_usuario, onUpdateUser }) {
   const [errors, setErrors] = useState({});
   const [updatedUsuario, setUpdatedUsuario] = useState({
     tipo_identificacion: "",
-    // otros campos de usuario
+    
   });
 
   const handleTipoIdentificacionChange = (e) => {
@@ -62,6 +62,11 @@ export function EditarUsuarioModal({ id_usuario, onUpdateUser }) {
         try {
           const data = await fetchData2(`${apiUrl}/consultar_usuario/${id_usuario}`, token);
           setUsuario(data);
+  
+          // Establecer el tipo de identificación actual al abrir el modal
+          setUpdatedUsuario({
+            tipo_identificacion: data.tipo_identificacion || "",
+          });
         } catch (error) {
           console.error('Error fetching user:', error);
         }
@@ -70,7 +75,7 @@ export function EditarUsuarioModal({ id_usuario, onUpdateUser }) {
       fetchUsuario();
     }
   }, [open, id_usuario, token]);
-
+  
 
   const manejarEnvio = async (event) => {
     event.preventDefault();
@@ -122,6 +127,7 @@ export function EditarUsuarioModal({ id_usuario, onUpdateUser }) {
         setOpen(false);
       } else {
         Swal.fire('Error!', respuesta.msg, 'error');
+        setOpen(false);
       }
     } catch (error) {
       console.log(error);
@@ -164,16 +170,17 @@ export function EditarUsuarioModal({ id_usuario, onUpdateUser }) {
               Tipo de cliente*
             </h6>
             <select 
-              name="tipo_identificacion"
-              value={updatedUsuario.tipo_identificacion}
-              onChange={handleTipoIdentificacionChange}
-              className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline-none transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 focus:border-2 focus:border-gray-900"
-            >
-              <option disabled value="">Seleccionar Tipo de Identificación</option>
-              <option value="CC">CC</option>
-              <option value="TI">TI</option>
-              <option value="CCE">CCE</option>
-            </select>
+  name="tipo_identificacion"
+  value={updatedUsuario.tipo_identificacion}
+  onChange={handleTipoIdentificacionChange}
+  className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline-none transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 focus:border-2 focus:border-gray-900"
+>
+  <option disabled value="">Seleccionar Tipo de Identificación</option>
+  <option value="CC">CC</option>
+  <option value="TI">TI</option>
+  <option value="CCE">CCE</option>
+</select>
+
           </div>
           <h6 className="block -mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
             Nombre del usuario*
