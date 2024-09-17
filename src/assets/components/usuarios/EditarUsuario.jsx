@@ -79,7 +79,7 @@ export function EditarUsuarioModal({ id_usuario, onUpdateUser }) {
       nombre: event.target.elements.Nombre.value,
       apellido: event.target.elements.Apellido.value,
       correo: event.target.elements.Correo.value,
-      clave: event.target.elements.Clave.value,
+     
       cedula: event.target.elements.Cedula.value,
       telefono: event.target.elements.Telefono.value,
       id_rol: event.target.elements.nombre_rol.value,
